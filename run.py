@@ -157,4 +157,4 @@ for attempt in range(30):
         print("The enemy has won.... GAME OVER!")
         break
 
-main(player_board, comp_board, comp_row, comp_col, comp_board_app)
+main(player_board, comp_board, comp_row, comp_col, comp_board_app) 
