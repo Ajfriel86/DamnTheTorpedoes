@@ -1,6 +1,3 @@
-""" 
-Python code for Battle Ship Game Called - Damn Those Torpedos!!!
-"""
 from random import randint
 
 comp_board = []
@@ -84,22 +81,67 @@ def game(comp_board, comp_col, comp_row, comp_board_app, player_board):
     players_name = input("Please enter your name: ")
     print(f"Welcome to War {players_name}.")
 
-    player_row = int(input("Choose your ships row: ")
+    player_row = int(input("Choose your ships row: "))
     player_col = int(input("Choose your ships column: "))
-    if (player_row < 0 or player_row > 7) or (player_col < 0 or player_col > 7):
+    if (player_row < 0 or player_row > 7) or
+            (player_col < 0 or player_col > 7):
         print("You're way off course solider!!!")
         print("Choose between 0 and 7")
-        player_row = int(input("Choose your ships row: ")
+        player_row = int(input("Choose your ships row: "))
         player_col = int(input("Choose your ships column: "))
     else:
         player_board[player_row][player_col] = "#"
 
 
 for attempt in range(30):
-    print("attempt", attempt +1)
+    print("attempt", attempt + 1)
 
-    guess_row = int(input("Guess your opponents row: "))
-    guess_col = int(input("Guess your opponents column: "))
-    print(f"Our target is ({guess_row},{guess_col}) FIRE!!!")
+    player_guess_row = int(input("Guess your opponents row: "))
+    player_guess_col = int(input("Guess your opponents column: "))
+    print(f"Our target is ({player_guess_row},{player_guess_col}) FIRE!!!")
+
+    def comp_row_coord(player_board):
+        return round(randint(0, len(board)-1))
+    
+    def comp_col_coord(player_board):
+        return round(randint(0, len(board)-1))
+
+    comp_row_coord(player_board)
+    comp_col_coord(player_board)
+
+    comp_guess_row = comp_row_coord(player_board)
+    comp_guess_col = comp_col_coord(player_board)
+
+    if (player_guess_row < 0 or player_guess_row > 7) or
+            (player_guess_col < 0 or player_guess_col > 7):
+        print("You're way off course solider!!!")
+    elif (player_board[player_guess_row][player_guess_col] == "!"):
+        print("Destroyed already solider!!")
+    elif player_guess_row == comp_row and player_guess_col == comp_col:
+        print("Direct HIT!")
+        player_board[player_guess_row][player_guess_col] = "!"
+        comp_destroyed += 1
+    else:
+        if (player_guess_row < 0 or player_guess_row < 7) or
+            (player_guess_col < 0 or player_guess_col < 7):
+            print("You're way off course solider!!!")
+        elif (player_board[player_guess_row][player_guess_col] == "X")
+                print("Destroyed already solider!!")
+        else:
+            print("Swing and a miss...")
+
+    if comp_guess_row == player_row and comp_guess_col == player_col:
+        player_board[comp_guess_row][comp_guess_col] = "!"
+        print("The Oponant has stuck your vessal")
+        player_destroyed += 1
+    else:
+        player_board[comp_guess_row][comp_guess_col] = "X"
+        print("Oponant: Swing and a miss...")
+
+    print("Oponants Board")
+    comp_board_app(comp_board)
+    print(f"{players_name} board")
+    player_board_app(player_board)
 
     
+
