@@ -64,7 +64,7 @@ for y in range(8):
 
 
 def player_board_app(player_board):
-    for grids in player:
+    for grids in player_board:
         print(" ".join(grids))
 
 
@@ -85,7 +85,7 @@ def game(comp_board, comp_col, comp_row, comp_board_app, player_board):
     player_col = int(input("Choose your ships column: \n"))
     if (player_row < int(0) or player_row > int(7)) \
             or (player_col < int(0) or player_col > int(7)):
-        print("You're way off course solider!!!")
+        print("You\'re way off course solider!!!")
         print("Choose between 0 and 7")
         player_row = int(input("Choose your ships row: \n"))
         player_col = int(input("Choose your ships column: \n"))
@@ -101,10 +101,10 @@ for attempt in range(30):
     print(f"Our target is ({player_guess_row},{player_guess_col}) FIRE!!!")
 
     def comp_row_coord(player_board):
-        return round(randint(0, len(board)-1))  
+        return round(randint(0, len(player_board)-1))  
     
     def comp_col_coord(player_board):
-        return round(randint(0, len(board)-1))
+        return round(randint(0, len(player_board)-1))
 
     comp_row_coord(player_board)
     comp_col_coord(player_board)
@@ -112,9 +112,9 @@ for attempt in range(30):
     comp_guess_row = comp_row_coord(player_board)
     comp_guess_col = comp_col_coord(player_board)
 
-    if (player_guess_row < int(0) or player_guess_row > int(7))
-    or (player_guess_col < 0 or player_guess_col > 7):
-        print("You're way off course solider!!!")
+    if (player_guess_row < int(0) or player_guess_row > int(7)) or  \
+            (player_guess_col < 0 or player_guess_col > 7):
+        print("You\'re way off course solider!!!")
     elif (player_board[player_guess_row][player_guess_col] == "!"):
         print("Destroyed already solider!!")
     elif player_guess_row == comp_row and player_guess_col == comp_col:
@@ -122,9 +122,9 @@ for attempt in range(30):
         player_board[player_guess_row][player_guess_col] = "!"
         comp_destroyed += 1
     else:
-        if (player_guess_row < 0 or player_guess_row < 7) or\n
+        if (player_guess_row < 0 or player_guess_row < 7) or \
         (player_guess_col < 0 or player_guess_col < 7):
-            print("You're way off course solider!!!")
+            print("You\'re way off course solider!!!")
         elif (player_board[player_guess_row][player_guess_col] == "X"):
             print("Destroyed already solider!!")
         else:
