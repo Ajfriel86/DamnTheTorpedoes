@@ -78,17 +78,17 @@ def game(comp_board, comp_col, comp_row, comp_board_app, player_board):
     player_destroyed = 0
     comp_destroyed = 0
 
-    players_name = input("Please enter your name: ")
+    players_name = input("Please enter your name: \n")
     print(f"Welcome to War {players_name}.")
 
-    player_row = int(input("Choose your ships row: "))
-    player_col = int(input("Choose your ships column: "))
-    if (player_row < 0 or player_row > 7) or \n
-    (player_col < 0 or player_col > 7):
+    player_row = int(input("Choose your ships row: \n"))
+    player_col = int(input("Choose your ships column: \n"))
+    if (player_row < 0 or player_row > 7)
+    or (player_col < 0 or player_col > 7):
         print("You're way off course solider!!!")
         print("Choose between 0 and 7")
-        player_row = int(input("Choose your ships row: "))
-        player_col = int(input("Choose your ships column: "))
+        player_row = int(input("Choose your ships row: \n"))
+        player_col = int(input("Choose your ships column: \n"))
     else:
         player_board[player_row][player_col] = "#"
 
@@ -96,13 +96,13 @@ def game(comp_board, comp_col, comp_row, comp_board_app, player_board):
 for attempt in range(30):
     print("attempt", attempt + 1)
 
-    player_guess_row = int(input("Guess your opponents row: "))
-    player_guess_col = int(input("Guess your opponents column: "))
+    player_guess_row = int(input("Guess your opponents row: \n"))
+    player_guess_col = int(input("Guess your opponents column: \n"))
     print(f"Our target is ({player_guess_row},{player_guess_col}) FIRE!!!")
 
     def comp_row_coord(player_board):
         return round(randint(0, len(board)-1))
-  
+    
     def comp_col_coord(player_board):
         return round(randint(0, len(board)-1))
 
@@ -148,7 +148,6 @@ for attempt in range(30):
         break
     else:
         print("Reloading torpedos")
-  
     if comp_destroyed == 1:
         print("The enemy has been oblitarated")
         break
@@ -157,4 +156,4 @@ for attempt in range(30):
         print("The enemy has won.... GAME OVER!")
         break
 
-main(player_board, comp_board, comp_row, comp_col, comp_board_app) 
+main(player_board, comp_board, comp_row, comp_col, comp_board_app)
