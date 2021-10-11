@@ -101,7 +101,7 @@ for attempt in range(30):
     print(f"Our target is ({player_guess_row},{player_guess_col}) FIRE!!!")
 
     def comp_row_coord(player_board):
-        return round(randint(0, len(board)-1))
+        return round(randint(0, len(board)-1))   
     
     def comp_col_coord(player_board):
         return round(randint(0, len(board)-1))
