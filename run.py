@@ -101,7 +101,7 @@ for attempt in range(30):
     print(f"Our target is ({player_guess_row},{player_guess_col}) FIRE!!!")
 
     def comp_row_coord(player_board):
-        return round(randint(0, len(board)-1))   
+        return round(randint(0, len(board)-1))  
     
     def comp_col_coord(player_board):
         return round(randint(0, len(board)-1))
@@ -112,8 +112,8 @@ for attempt in range(30):
     comp_guess_row = comp_row_coord(player_board)
     comp_guess_col = comp_col_coord(player_board)
 
-    if (player_guess_row < 0 or player_guess_row > 7) or\n
-    (player_guess_col < 0 or player_guess_col > 7):
+    if (player_guess_row < int(0) or player_guess_row > int(7))
+    or (player_guess_col < 0 or player_guess_col > 7):
         print("You're way off course solider!!!")
     elif (player_board[player_guess_row][player_guess_col] == "!"):
         print("Destroyed already solider!!")
