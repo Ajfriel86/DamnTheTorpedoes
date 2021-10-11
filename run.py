@@ -83,8 +83,8 @@ def game(comp_board, comp_col, comp_row, comp_board_app, player_board):
 
     player_row = int(input("Choose your ships row: \n"))
     player_col = int(input("Choose your ships column: \n"))
-    if (player_row < 0 or player_row > 7)
-    or (player_col < 0 or player_col > 7):
+    if (player_row < int(0) or player_row > int(7)) \
+            or (player_col < int(0) or player_col > int(7)):
         print("You're way off course solider!!!")
         print("Choose between 0 and 7")
         player_row = int(input("Choose your ships row: \n"))
