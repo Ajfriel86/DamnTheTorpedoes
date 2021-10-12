@@ -1,31 +1,67 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Angus Friel
 
-Welcome Ajfriel86,
+## Project-Name: Damn The Torpedos
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+![Responsive](./assets/image/battleship.png)
 
-## Reminders
+[View Deployed Site Here](https://damn-the-torpedos.herokuapp.com/)
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
 
-## Creating the Heroku app
+  
+## Features
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
 
-1. `heroku/python`
-2. `heroku/nodejs`
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+### The Landing Page
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
 
-Connect your GitHub repository and deploy as normal.
+### Game Rules
 
-## Constraints
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+## Testing
 
------
-Happy coding!
+
+## Bugs
+ 
+
+## Technologies used
+The technologies used for the contruction of this site are as follows: 
+
+* [GitPod](gitpod.io) - This was used as an IDE, or the Intergrated Development Area, where the HTML, CSS and JavaScritp where all written in the required file types in oder to display the website. 
+* [GitHub](https://github.com/) - this was used to host the website, so it is viewable to the public.
+
+## Deployment
+
+This website was contructed in GitPod and deplopyed on GitHub. The steps taken to deploy this website from its [GitHub Repository](https://github.com/Ajfriel86/TheSimpsons) are as folows: 
+
+* Log into GitHub
+* Go to the list of repositories on the left-hand side of the screen.
+* Click on the repository - Ajfriel86/TheSimpsons
+* Choose the settings tab froim the menu items across the top of the page; it is the ninth choice and last option on the menu items.
+* Once the settings page has loaded scroll down to GitHub Pages.
+* In the source section, choose the master branch.
+* On selecting this the page is automatically refreshed and the website is deployed.
+* A link to the website is then diplayed, this is the deployed websites website address.    
+
+## Credits
+### Content
+The content of this website was written by Angus Friel. 
+
+### Code
+ 
+
+### Acknowledgements
+
+
+[]()
+
+
+[]()
+
+
+[]()
+
+[]()
+
+#### Disclaimer
+The content of this Website is for educational purposes only.
