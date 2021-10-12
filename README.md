@@ -52,7 +52,7 @@ This website was contructed in GitPod and deplopyed using Github and Heroku. The
 
 * Log into GitHub
 * Go to the list of repositories on the left-hand side of the screen.
-* Click on the repository - Ajfriel86/TheSimpsons
+* Click on the repository - Ajfriel86/DamnTheTorpedoes
 * Choose the settings tab froim the menu items across the top of the page; it is the ninth choice and last option on the menu items.
 * Once the settings page has loaded scroll down to GitHub Pages.
 * In the source section, choose the master branch.
