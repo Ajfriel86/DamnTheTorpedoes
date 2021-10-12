@@ -22,8 +22,8 @@ def game_begin():
     print("ii) Each row uses a coordinate system of (0,9) there are ten rows.")
     print("iii) Inputs must use numbers between(0,7) for both the row and\
         the column. Begining at (0, 0).")
-    print("iv) Water is represented by ~. Misses are \nrepresented by X.\
-        Hits are represented by # and your ship is represented by S")
+    print("iv) Water is represented by ~. Misses are represented by X.\
+        Hits are represented by # and your ship is represented by S.")
     print("v) You ten attempts to destroy the enemy target.")
     print("vi) Enjoy yourself.")
 
