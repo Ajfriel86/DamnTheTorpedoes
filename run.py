@@ -10,16 +10,15 @@ def game_begin():
     print("i) Destroy your opponets ships.")
     print("ii) Each row uses a coordinate system of (0,9) there are ten rows.")
     print("iii) Inputs must use numbers between(0,7) for both the row and\
-         the column. Begining at (0, 0).")
-    print("iv) Enjoy yourself.")
+        the column. Begining at (0, 0).")
+    print("iv) Water is represented by ~. Misses are \nrepresented by X.\
+        Hits are represented by # and your ship is represented by S")
+    print("v) You ten attempts to destroy the enemy target.")
+    print("vi) Enjoy yourself.")
 
 
 game_begin()
 
-
-"""
-Comments
-"""
 for x in range(8):
     comp_board.append(["~"] * 8)
 
@@ -79,9 +78,9 @@ def game(comp_board, comp_col, comp_row, comp_board_app, player_board):
         player_row = int(input("Choose your ships row: \n"))
         player_col = int(input("Choose your ships column: \n"))
     else:
-        player_board[player_row][player_col] = "#"
+        player_board[player_row][player_col] = "S"
 
-    for attempt in range(30):
+    for attempt in range(10):
         print("attempt", attempt + 1)
         player_guess_row = int(input("Guess your opponents row: \n"))
         player_guess_col = int(input("Guess your opponents column: \n"))
@@ -93,11 +92,11 @@ def game(comp_board, comp_col, comp_row, comp_board_app, player_board):
         if (player_guess_row < int(0) or player_guess_row > int(7)) or  \
                 (player_guess_col < 0 or player_guess_col > 7):
             print("You\'re way off course solider!!!")
-        elif (player_board[player_guess_row][player_guess_col] == "!"):
+        elif (player_board[player_guess_row][player_guess_col] == "#"):
             print("Destroyed already solider!!")
         elif player_guess_row == comp_row and player_guess_col == comp_col:
             print("Direct HIT!")
-            player_board[player_guess_row][player_guess_col] = "!"
+            player_board[player_guess_row][player_guess_col] = "#"
             comp_destroyed += 1
         else:
             if (player_guess_row < 0 or player_guess_row < 7) or\
@@ -109,7 +108,7 @@ def game(comp_board, comp_col, comp_row, comp_board_app, player_board):
                 print("Swing and a miss...")
 
         if comp_guess_row == player_row and comp_guess_col == player_col:
-            player_board[comp_guess_row][comp_guess_col] = "!"
+            player_board[comp_guess_row][comp_guess_col] = "#"
             print("The enemy has stuck your vessal")
             player_destroyed += 1
         else:
