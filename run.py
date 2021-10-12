@@ -28,10 +28,6 @@ def comp_board_app(comp_board):
     for grid in comp_board:
         print(" ".join(grid))
 
-    """
-    Comments
-    """
-
 
 def rand_row(comp_board):
     return round(randint(0, len(comp_board) - 1))
@@ -42,14 +38,7 @@ def rand_col(comp_board):
 
 
 rand_col(comp_board)
-
-
 rand_row(comp_board)
-
-
-"""
-Comments
-"""
 
 comp_row = rand_row(comp_board)
 comp_col = rand_col(comp_board)
@@ -98,14 +87,8 @@ def game(comp_board, comp_col, comp_row, comp_board_app, player_board):
         player_guess_col = int(input("Guess your opponents column: \n"))
         print(f"Our target is ({player_guess_row},{player_guess_col}) FIRE!!!")
 
-        def comp_row_coord(player_board):
-            return round(randint(0, len(player_board)-1))
-     
-        def comp_col_coord(player_board):
-            return round(randint(0, len(player_board)-1))
-
-        comp_guess_row = comp_row_coord(player_board)
-        comp_guess_col = comp_col_coord(player_board)
+        comp_guess_row = round(randint(0, len(player_board)-1))
+        comp_guess_col = round(randint(0, len(player_board)-1))
 
         if (player_guess_row < int(0) or player_guess_row > int(7)) or  \
                 (player_guess_col < 0 or player_guess_col > 7):
@@ -151,5 +134,5 @@ def game(comp_board, comp_col, comp_row, comp_board_app, player_board):
             print("The enemy has won.... GAME OVER!")
             break
 
-game(comp_board, comp_col, comp_row, comp_board_app, player_board)
 
+game(comp_board, comp_col, comp_row, comp_board_app, player_board)
