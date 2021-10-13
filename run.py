@@ -1,5 +1,6 @@
 from random import randint
 
+
 """
 For the players and computers board I created
 an empty array to hold the siymbols which dictated
@@ -20,10 +21,10 @@ def game_begin():
     print("Game rules are as follows:")
     print("i) Destroy your opponets ships.")
     print("ii) Each row uses a coordinate system of (0,9) there are ten rows.")
-    print("iii) Inputs must use numbers between(0,7) for both the row and\
-        the column. Begining at (0, 0).")
-    print("iv) Water is represented by ~. Misses are represented by X.\
-        Hits are represented by # and your ship is represented by S.")
+    print("iii) Inputs must use numbers between(0,7) for both the row and "
+          "the column. Begining at (0, 0).")
+    print("iv) Water is represented by ~. Misses are represented by X. "
+          "Hits are represented by # and your ship is represented by S.")
     print("v) You ten attempts to destroy the enemy target.")
     print("vi) Enjoy yourself.")
 
@@ -112,20 +113,26 @@ def game(comp_board, comp_col, comp_row, comp_board_app, player_board):
     """
     Varibles that store the players ship row and coloum
     """
-    player_row = int(input("Choose your ships row: \n"))
-    player_col = int(input("Choose your ships column: \n"))
-    """
-    If statement to see that the players selects the correct
-    coordinates within the board to place their ship
-    """
-    if (player_row < 0 or player_row > 7) \
-            or (player_col < 0 or player_col > 7):
-        print("You\'re way off course solider!!!")
-        print("Choose between 0 and 7")
+    player_ships = set()
+    
+    while len(player_ships) < 3:
+        print("$$$$$$$$")
+        print(player_ships)
         player_row = int(input("Choose your ships row: \n"))
         player_col = int(input("Choose your ships column: \n"))
-    else:
-        player_board[player_row][player_col] = "S"
+        """
+        If statement to see that the players selects the correct
+        coordinates within the board to place their ship
+        """
+        if (player_row < 0 or player_row > 7) \
+                or (player_col < 0 or player_col > 7):
+            print("You\'re way off course solider!!!")
+            print("Choose between 0 and 7")
+        elif (player_row, player_col) in player_ships: 
+            print("Already a ship here")
+        else:
+            player_ships.add((player_row, player_col))
+            player_board[player_row][player_col] = "S"
     """
     for loop that gives the player 10 attempts at guessing
     the computers ship coordinates
@@ -174,10 +181,12 @@ def game(comp_board, comp_col, comp_row, comp_board_app, player_board):
         else:
             player_board[comp_guess_row][comp_guess_col] = "X"
             print("Enemy: Swing and a miss...")
+
         """
         Here the varbiles are used to update both boards
         for the player and computer
         """
+
         print("The Enemies Board")
         comp_board_app(comp_board)
         print(f"{players_name} board")
@@ -190,6 +199,7 @@ def game(comp_board, comp_col, comp_row, comp_board_app, player_board):
         if a computers ship is destyroyed print messgae.
         if players ship is destroyed print message.
         """
+
         if attempt == 9:
             print("Damn the lack of torpedos... GAME OVER!")
             break
