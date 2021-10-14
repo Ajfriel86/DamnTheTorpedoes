@@ -1,9 +1,10 @@
 from random import randint
 
-# For the players and computers board I created
-# an empty list to hold the symbols which dictated
-# what is happening on the board
-
+"""
+For the players and computers board I created
+an empty list to hold the symbols which dictated
+what is happening on the board
+"""
 NUM_SHIPS = 8
 
 comp_board = []
@@ -38,15 +39,21 @@ for x in range(8):
 
 
 def comp_board_app(comp_board):
+    """
+    """
     for grid in comp_board:
         print(" ".join(grid))
 
 
 def rand_row(comp_board):
+    """
+    """
     return round(randint(0, len(comp_board) - 1))
 
 
 def rand_col(comp_board):
+    """
+    """
     return randint(0, len(comp_board[0]) - 1)
 
 
