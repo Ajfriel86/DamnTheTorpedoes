@@ -37,26 +37,29 @@ for x in range(8):
     comp_board.append(["~"] * 8)
 
 
-def comp_board_app(comp_board):
+def get_board(board):
     """
     comments
     """
-    for grid in comp_board:
+    for grid in board:
         print(" ".join(grid))
 
 
-def rand_row(comp_board):
+get_board(comp_board)
+
+
+def rand_row(board):
     """
     comment
     """
-    return round(randint(0, len(comp_board) - 1))
+    return round(randint(0, len(board) - 1))
 
 
-def rand_col(comp_board):
+def rand_col(board):
     """
     comment
     """
-    return randint(0, len(comp_board[0]) - 1)
+    return randint(0, len(board[0]) - 1)
 
 
 # The varibales below are the varibles used to store the computers ship
@@ -64,20 +67,19 @@ def rand_col(comp_board):
 comp_row = rand_row(comp_board)
 comp_col = rand_col(comp_board)
 
-
 for y in range(8):
     player_board.append(["~"] * 8)
 
 
-def player_board_app(player_board):
+def player_board_app(p_board):
     """
     Comment
     """
-    for grids in player_board:
+    for grids in p_board:
         print(" ".join(grids))
 
 
-def main(comp_board, comp_col, comp_row, comp_board_app, player_board):
+def main(comp_board, comp_col, comp_row, get_board, player_board):
     """
     Comment
     """
@@ -143,7 +145,7 @@ def main(comp_board, comp_col, comp_row, comp_board_app, player_board):
             print("Enemy: Swing and a miss...")
 
         print("The Enemies Board")
-        comp_board_app(comp_board)
+        get_board(comp_board)
         print(f"{players_name} board")
         player_board_app(player_board)
 
@@ -163,4 +165,4 @@ def main(comp_board, comp_col, comp_row, comp_board_app, player_board):
 # This is the game function being called to play the game
 
 
-main(comp_board, comp_col, comp_row, comp_board_app, player_board)
+main(comp_board, comp_col, comp_row, get_board, player_board)
