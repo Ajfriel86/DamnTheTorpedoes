@@ -1,10 +1,9 @@
 from random import randint
 
-"""
-For the players and computers board I created
-an empty list to hold the symbols which dictated
-what is happening on the board
-"""
+# For the players and computers board I created
+# an empty list to hold the symbols which dictated
+# what is happening on the board
+
 NUM_SHIPS = 8
 
 comp_board = []
@@ -40,6 +39,7 @@ for x in range(8):
 
 def comp_board_app(comp_board):
     """
+    comments
     """
     for grid in comp_board:
         print(" ".join(grid))
@@ -47,12 +47,14 @@ def comp_board_app(comp_board):
 
 def rand_row(comp_board):
     """
+    comment
     """
     return round(randint(0, len(comp_board) - 1))
 
 
 def rand_col(comp_board):
     """
+    comment
     """
     return randint(0, len(comp_board[0]) - 1)
 
@@ -68,18 +70,24 @@ for y in range(8):
 
 
 def player_board_app(player_board):
+    """
+    Comment
+    """
     for grids in player_board:
         print(" ".join(grids))
 
 
 def main(comp_board, comp_col, comp_row, comp_board_app, player_board):
+    """
+    Comment
+    """
 
     game_rules()
 
     player_destroyed = 0
     comp_destroyed = 0
 
-    players_name = input("Please enter your name: \n")
+    players_name = input("Please enter your name: ")
     print(f"Welcome to War {players_name}.")
 
     player_ships = set()
@@ -111,9 +119,9 @@ def main(comp_board, comp_col, comp_row, comp_board_app, player_board):
         if (player_guess_row < int(0) or player_guess_row > int(7)) or  \
                 (player_guess_col < 0 or player_guess_col > 7):
             print("You\'re way off course solider!!!")
-        elif (player_board[player_guess_row][player_guess_col] == "#"):
+        elif player_board[player_guess_row][player_guess_col] == "#":
             print("Destroyed already solider!!")
-        elif player_guess_row == comp_row and player_guess_col == comp_col:
+        elif (player_guess_row == comp_row and player_guess_col == comp_col):
             print("Direct HIT!")
             player_board[player_guess_row][player_guess_col] = "#"
             comp_destroyed += 1
@@ -121,7 +129,7 @@ def main(comp_board, comp_col, comp_row, comp_board_app, player_board):
             if (player_guess_row < 0 or player_guess_row < 7) or\
                     (player_guess_col < 0 or player_guess_col < 7):
                 print("You\'re way off course solider!!!")
-            elif (player_board[player_guess_row][player_guess_col] == "X"):
+            elif player_board[player_guess_row][player_guess_col] == "X":
                 print("Destroyed already solider!!")
             else:
                 print("Swing and a miss...")
