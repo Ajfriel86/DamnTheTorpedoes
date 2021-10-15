@@ -86,8 +86,8 @@ def main():
     players_name = input("Please enter your name: \n")
     print(f"Welcome to War {players_name}.")
     player_ships = set()
-    try:
-        while len(player_ships) < NUM_SHIPS:
+    while len(player_ships) < NUM_SHIPS:
+        try:
             player_row = input("Choose your ships row: \n")
             player_col = input("Choose your ships column: \n")
             if (player_row < 0 or player_row > 7) \
@@ -99,8 +99,8 @@ def main():
             else:
                 player_ships.add((player_row, player_col))
                 player_board[player_row][player_col] = "S"
-    except ValueError:
-        print("This is not a number")
+        except ValueError:
+            print("This is not a number")
     for attempt in range(10):
         print("Attempt", attempt + 1)
         player_guess_row = int(input("Guess the enemies row: \n"))
