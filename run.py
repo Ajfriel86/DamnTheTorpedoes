@@ -34,6 +34,7 @@ def game_rules():
 
 for x in range(8):
     comp_board.append(["~"] * 8)
+    player_board.append(["~"] * 8)
 
 
 def comp_board_app(c_board):
@@ -44,11 +45,17 @@ def comp_board_app(c_board):
         print(" ".join(grid))
 
 
+comp_board_app(comp_board)
+
+
 def rand_row(c_board):
     """
     This function picks a random row
     """
     return round(randint(0, len(c_board) - 1))
+
+
+rand_row(comp_board)
 
 
 def rand_col(c_board):
@@ -58,13 +65,10 @@ def rand_col(c_board):
     return randint(0, len(c_board[0]) - 1)
 
 
+rand_col(comp_board)
 comp_board_app(comp_board)
 rand_col(comp_board)
 rand_row(comp_board)
-
-
-for y in range(8):
-    player_board.append(["~"] * 8)
 
 
 def player_board_app(p_board):
@@ -91,8 +95,6 @@ def main():
 
     player_ships = set()
     while len(player_ships) < NUM_SHIPS:
-        print("$$$$$$$$")
-        print(player_ships)
         player_row = int(input("Choose your ships row: \n"))
         player_col = int(input("Choose your ships column: \n"))
 
@@ -107,8 +109,7 @@ def main():
             player_board[player_row][player_col] = "S"
 
     for attempt in range(10):
-        print(player_ships)
-        print("attempt", attempt + 1)
+        print("Attempt", attempt + 1)
         player_guess_row = int(input("Guess the enemies row: \n"))
         player_guess_col = int(input("Guess the enemies column: \n"))
         print(f"Our target is ({player_guess_row},{player_guess_col}) FIRE!!!")
@@ -144,7 +145,7 @@ def main():
 
         print("The Enemies Board")
         comp_board_app(comp_board)
-        print(f"{players_name} board")
+        print(f"\n{players_name}\'s board")
         player_board_app(player_board)
 
         if attempt == 9:
