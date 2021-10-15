@@ -86,7 +86,7 @@ def main():
     player_destroyed = 0
     comp_destroyed = 0
 
-    players_name = str(input("Please enter your name: \n"))
+    players_name = input("Please enter your name: \n")
     print(f"Welcome to War {players_name}.")
 
     player_ships = set()
