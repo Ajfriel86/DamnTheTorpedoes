@@ -86,10 +86,19 @@ def main():
     players_name = input("Please enter your name: \n")
     print(f"Welcome to War {players_name}.")
     player_ships = set()
+    # this varible is number of successfull goes
+    g_number = 0
     while len(player_ships) < NUM_SHIPS:
-        try:
-            player_row = input("Choose your ships row: \n")
-            player_col = input("Choose your ships column: \n")
+        player_row = input("Choose your ships row: \n")
+        player_col = input("Choose your ships column: \n")
+
+        # this checks if the row and column entered are digits
+        if player_col.isdigit() and player_row.isdigit():
+            player_col = int(player_col)
+            player_row = int(player_row)
+            # this checks to see if the user entered numbers
+            # within the boards scope
+            # if they have an S is placed on the board for a ships palce
             if (player_row < 0 or player_row > 7) \
                     or (player_col < 0 or player_col > 7):
                 print("You\'re way off course solider!!!")
@@ -99,8 +108,15 @@ def main():
             else:
                 player_ships.add((player_row, player_col))
                 player_board[player_row][player_col] = "S"
-        except ValueError:
-            print("This is not a number")
+                # if a user enters the correct enteries
+                # their number of goes is incremented
+                g_number = g_number + 1
+                print("Success - go completed: ", g_number)
+        else:
+            # if the user does not enter a
+            # number this error message is displayed
+            print("One of these is not a digit - Try again!!!"
+                  " You are on go number: ", g_number)
     for attempt in range(10):
         print("Attempt", attempt + 1)
         player_guess_row = int(input("Guess the enemies row: \n"))
