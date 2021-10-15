@@ -17,19 +17,18 @@ def game_rules():
     It prints out the rules to show players how the games works
     """
 
-    print("Damn The Torpedos!!!")
+    print("Damn The Torpedo’s!!!")
     print("Game rules are as follows:")
-    print("i) Destroy your opponets ships.")
+    print("i) Destroy your enemies ships.")
     print("ii) Each row uses a coordinate system of (0,9) there are ten rows.")
     print("iii) Inputs must use numbers between(0,7) for both the row and "
-          "the column. Begining at (0, 0).")
+          "the column. Beginning at (0, 0).")
     print("iv) Water is represented by ~. Misses are represented by X. "
           "Hits are represented by # and your ship is represented by S.")
     print("v) You ten attempts to destroy the enemy target.")
     print("vi) Enjoy yourself.")
 
-
-# The following for loop creates an arrary of 8 rows
+# The following for loop creates an list of 8 rows
 # It then populates this array with ~ which represents water
 
 
@@ -65,10 +64,8 @@ def rand_col(c_board):
 rand_col(comp_board)
 rand_row(comp_board)
 
-
 comp_row = rand_row(comp_board)
 comp_col = rand_col(comp_board)
-
 
 for y in range(8):
     player_board.append(["~"] * 8)
@@ -117,8 +114,8 @@ def main(c_board, comp_col, comp_row, comp_board_app, p_board):
     for attempt in range(10):
         print(player_ships)
         print("attempt", attempt + 1)
-        player_guess_row = int(input("Guess your opponents row: \n"))
-        player_guess_col = int(input("Guess your opponents column: \n"))
+        player_guess_row = int(input("Guess the enemies row: \n"))
+        player_guess_col = int(input("Guess the enemies column: \n"))
         print(f"Our target is ({player_guess_row},{player_guess_col}) FIRE!!!")
 
         comp_guess_row = round(randint(0, len(player_board)-1))
@@ -144,7 +141,7 @@ def main(c_board, comp_col, comp_row, comp_board_app, p_board):
 
         if comp_guess_row == player_row and comp_guess_col == player_col:
             player_board[comp_guess_row][comp_guess_col] = "#"
-            print("The enemy has stuck your vessal")
+            print("The enemy has stuck your vessel")
             player_destroyed += 1
         else:
             player_board[comp_guess_row][comp_guess_col] = "X"
@@ -156,12 +153,12 @@ def main(c_board, comp_col, comp_row, comp_board_app, p_board):
         player_board_app(player_board)
 
         if attempt == 9:
-            print("Damn the lack of torpedos... GAME OVER!")
+            print("Damn the lack of torpedoes... GAME OVER!")
             break
         else:
-            print("Reloading torpedos")
+            print("Reloading torpedoes")
         if comp_destroyed == 1:
-            print("The enemy has been oblitarated")
+            print("The enemy has been obliterated")
             break
 
         if player_destroyed == 1:
@@ -171,4 +168,4 @@ def main(c_board, comp_col, comp_row, comp_board_app, p_board):
 # This is the game function being called to play the game
 
 
-main(c_board, comp_col, comp_row, comp_board_app, p_board)
+main(comp_board, comp_col, comp_row, comp_board_app, player_board)
