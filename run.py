@@ -37,35 +37,38 @@ for x in range(8):
     comp_board.append(["~"] * 8)
 
 
-def get_board(board):
+def comp_board_app(c_board):
     """
-    comments
+    This function removes the [] from the list in comps board
     """
-    for grid in board:
+    for grid in c_board:
         print(" ".join(grid))
 
 
-get_board(comp_board)
+comp_board_app(comp_board)
 
 
-def rand_row(board):
+def rand_row(c_board):
     """
-    comment
+    This function picks a random row
     """
-    return round(randint(0, len(board) - 1))
+    return round(randint(0, len(c_board) - 1))
 
 
-def rand_col(board):
+def rand_col(c_board):
     """
-    comment
+    This function picks a random column
     """
-    return randint(0, len(board[0]) - 1)
+    return randint(0, len(c_board[0]) - 1)
 
 
-# The varibales below are the varibles used to store the computers ship
+rand_col(comp_board)
+rand_row(comp_board)
+
 
 comp_row = rand_row(comp_board)
 comp_col = rand_col(comp_board)
+
 
 for y in range(8):
     player_board.append(["~"] * 8)
@@ -73,23 +76,25 @@ for y in range(8):
 
 def player_board_app(p_board):
     """
-    Comment
+    This function removes the [] from the list in players board
     """
     for grids in p_board:
         print(" ".join(grids))
 
 
-def main(comp_board, comp_col, comp_row, get_board, player_board):
-    """
-    Comment
-    """
+player_board_app(player_board)
 
+
+def main(c_board, comp_col, comp_row, comp_board_app, p_board):
+    """
+    This is the main function of the game where all tasks are carried out
+    """
     game_rules()
 
     player_destroyed = 0
     comp_destroyed = 0
 
-    players_name = input("Please enter your name: ")
+    players_name = input("Please enter your name: \n")
     print(f"Welcome to War {players_name}.")
 
     player_ships = set()
@@ -110,6 +115,7 @@ def main(comp_board, comp_col, comp_row, get_board, player_board):
             player_board[player_row][player_col] = "S"
 
     for attempt in range(10):
+        print(player_ships)
         print("attempt", attempt + 1)
         player_guess_row = int(input("Guess your opponents row: \n"))
         player_guess_col = int(input("Guess your opponents column: \n"))
@@ -145,7 +151,7 @@ def main(comp_board, comp_col, comp_row, get_board, player_board):
             print("Enemy: Swing and a miss...")
 
         print("The Enemies Board")
-        get_board(comp_board)
+        comp_board_app(comp_board)
         print(f"{players_name} board")
         player_board_app(player_board)
 
@@ -165,4 +171,4 @@ def main(comp_board, comp_col, comp_row, get_board, player_board):
 # This is the game function being called to play the game
 
 
-main(comp_board, comp_col, comp_row, get_board, player_board)
+main(c_board, comp_col, comp_row, comp_board_app, p_board)
