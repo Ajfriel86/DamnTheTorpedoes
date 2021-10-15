@@ -58,14 +58,9 @@ def rand_col(c_board):
     return randint(0, len(c_board[0]) - 1)
 
 
-comp_row = rand_row(comp_board)
-comp_col = rand_col(comp_board)
 comp_board_app(comp_board)
 rand_col(comp_board)
 rand_row(comp_board)
-
-
-def initialiseGame(comp_row, comp_col, comp_board_app):
 
 
 for y in range(8):
@@ -80,15 +75,14 @@ def player_board_app(p_board):
         print(" ".join(grids))
 
 
-player_board_app(player_board)
-
-
-def main(c_board, p_board):
+def main():
     """
     This is the main function of the game where all tasks are carried out
     """
     game_rules()
-    initialiseGame(comp_row, comp_col, comp_board_app)
+
+    comp_row = rand_row(comp_board)
+    comp_col = rand_col(comp_board)
     player_destroyed = 0
     comp_destroyed = 0
 
@@ -149,9 +143,9 @@ def main(c_board, p_board):
             print("Enemy: Swing and a miss...")
 
         print("The Enemies Board")
-        comp_board_app(c_board)
+        comp_board_app(comp_board)
         print(f"{players_name} board")
-        player_board_app(p_board)
+        player_board_app(player_board)
 
         if attempt == 9:
             print("Damn the lack of torpedoes... GAME OVER!")
@@ -169,4 +163,7 @@ def main(c_board, p_board):
 # This is the game function being called to play the game
 
 
-main(comp_board, comp_col, comp_row, comp_board_app, player_board)
+player_board_app(player_board)
+
+
+main()
