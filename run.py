@@ -99,7 +99,7 @@ def main():
             else:
                 player_ships.add((player_row, player_col))
                 player_board[player_row][player_col] = "S"
-    except ValueError():
+    except ValueError:
         print("This is not a number")
     for attempt in range(10):
         print("Attempt", attempt + 1)
