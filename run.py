@@ -65,12 +65,6 @@ def rand_col(c_board):
     return randint(0, len(c_board[0]) - 1)
 
 
-rand_col(comp_board)
-comp_board_app(comp_board)
-rand_col(comp_board)
-rand_row(comp_board)
-
-
 def player_board_app(p_board):
     """
     This function removes the [] from the list in players board
@@ -89,14 +83,20 @@ def main():
     comp_col = rand_col(comp_board)
     player_destroyed = 0
     comp_destroyed = 0
-
     players_name = input("Please enter your name: \n")
     print(f"Welcome to War {players_name}.")
-
     player_ships = set()
     while len(player_ships) < NUM_SHIPS:
-        player_row = int(input("Choose your ships row: \n"))
-        player_col = int(input("Choose your ships column: \n"))
+        player_row = input("Choose your ships row: \n")
+        player_col = input("Choose your ships column: \n")
+        if player_row.isdigit():
+            player_row = int(player_row)
+        else:
+            raise ValueError()
+        if player_col.isdigit():
+            player_col = int(player_col)
+        else:
+            raise ValueError()
 
         if (player_row < 0 or player_row > 7) \
                 or (player_col < 0 or player_col > 7):
@@ -107,7 +107,6 @@ def main():
         else:
             player_ships.add((player_row, player_col))
             player_board[player_row][player_col] = "S"
-
     for attempt in range(10):
         print("Attempt", attempt + 1)
         player_guess_row = int(input("Guess the enemies row: \n"))
@@ -165,6 +164,9 @@ def main():
 
 
 player_board_app(player_board)
-
+rand_col(comp_board)
+comp_board_app(comp_board)
+rand_col(comp_board)
+rand_row(comp_board)
 
 main()
