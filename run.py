@@ -86,28 +86,21 @@ def main():
     players_name = input("Please enter your name: \n")
     print(f"Welcome to War {players_name}.")
     player_ships = set()
-    while len(player_ships) < NUM_SHIPS:
-        player_row = input("Choose your ships row: \n")
-        player_col = input("Choose your ships column: \n")
-        if player_row.isdigit():
-            player_row = int(player_row)
-        else:
-            raise ValueError()
-        if player_col.isdigit():
-            player_col = int(player_col)
-        else:
-            #raise ValueError()
-            print("This {player_col} is not a number")
-            break
-        if (player_row < 0 or player_row > 7) \
-                or (player_col < 0 or player_col > 7):
-            print("You\'re way off course solider!!!")
-            print("Choose between 0 and 7")
-        elif (player_row, player_col) in player_ships:
-            print("Already a ship here")
-        else:
-            player_ships.add((player_row, player_col))
-            player_board[player_row][player_col] = "S"
+    try:
+        while len(player_ships) < NUM_SHIPS:
+            player_row = input("Choose your ships row: \n")
+            player_col = input("Choose your ships column: \n")
+            if (player_row < 0 or player_row > 7) \
+                    or (player_col < 0 or player_col > 7):
+                print("You\'re way off course solider!!!")
+                print("Choose between 0 and 7")
+            elif (player_row, player_col) in player_ships:
+                print("Already a ship here")
+            else:
+                player_ships.add((player_row, player_col))
+                player_board[player_row][player_col] = "S"
+    except ValueError():
+        print("This is not a number")
     for attempt in range(10):
         print("Attempt", attempt + 1)
         player_guess_row = int(input("Guess the enemies row: \n"))
