@@ -96,8 +96,9 @@ def main():
         if player_col.isdigit():
             player_col = int(player_col)
         else:
-            raise ValueError()
-
+            #raise ValueError()
+            print("This {player_col} is not a number")
+            break
         if (player_row < 0 or player_row > 7) \
                 or (player_col < 0 or player_col > 7):
             print("You\'re way off course solider!!!")
