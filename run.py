@@ -111,7 +111,7 @@ def main():
                 # if a user enters the correct enteries
                 # their number of goes is incremented
                 g_number = g_number + 1
-                print("Success - go completed: ", g_number)
+                print("Success - Go completed: ", g_number)
         else:
             # if the user does not enter a
             # number this error message is displayed
